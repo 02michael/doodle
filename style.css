@@ -1,0 +1,38 @@
+body {
+  height: 100vh;
+}
+
+css-doodle {
+  --rule: (
+    @grid: 1 / 100%;
+
+    --size: 400px;
+
+    background-size: @var(--size) @var(--size);
+    background-image: @doodle(
+      /* colors */
+      --c1: #5e61cd;
+      --c2: #56cee1;
+      --c3: #7301b7;
+      --c4: #7fffdb;
+
+      @grid: 4 / @var(--size) @var(--size);
+
+      @nth(1, 8, 14) {
+        background: conic-gradient(from -45deg, @stripe(--c1, --c2, --c3, --c2));
+  }
+  @nth(2, 5, 12, 15) {
+    background: conic-gradient(from -45deg, @stripe(--c3, --c4, --c1, --c2));
+  }
+  @nth(3, 6, 9, 16) {
+    background: conic-gradient(from -45deg, @stripe(--c1, --c2, --c3, --c4));
+  }
+  @nth(4, 10, 13) {
+    background: conic-gradient(from -45deg, @stripe(--c3, --c2, --c1, --c2));
+  }
+  @nth(7, 11) {
+    background: conic-gradient(from -45deg, @stripe(--c3, --c2, --c3, --c2));
+  }
+  );
+  );
+}
